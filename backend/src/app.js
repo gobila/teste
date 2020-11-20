@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const cliente = require('./controller/clienteController');
+const cliente = require('./controller/pedidoController');
 const routes = require('./routes');
 
 
