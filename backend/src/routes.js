@@ -38,8 +38,8 @@ routes.get("/pedido", pedidoController.index);
 
 routes.post("/addpedido", celebrate({
     [Segments.BODY]:Joi.object().keys({
-        produto_id:Joi.interger().required(),
-        cliente_id:Joi.interger().required(),
+        produto_id:Joi.string().required(),
+        cliente_id:Joi.string().required(),
         valor:Joi.string().required(),
     })
 }), pedidoController.create);
