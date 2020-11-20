@@ -10,6 +10,7 @@ const routes = express.Router();
 //cliente
 routes.get("/cliente", clienteController.index);
 
+
 routes.post("/cadCliente", celebrate({
     [Segments.BODY]:Joi.object().keys({
         name:Joi.string().required(),
@@ -39,6 +40,5 @@ routes.post("cadPedido", celebrate({
         data:Joi.date().required()
     })
 }), produtoController.create);
-
 
 module.exports = routes
