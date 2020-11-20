@@ -1,7 +1,7 @@
 
 exports.up = function(knex) {
     return knex.schema.createTable('pedidos', function(table){
-        table.string('pedido_id').primary();
+        table.increments('pedido_id').primary();
         table.string('valor').notNullable();
         table.string('data').notNullable();
         table.string('hora').notNullable();
@@ -18,5 +18,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTable('ongs')
+    return knex.schema.dropTable('pedidos')
 };
