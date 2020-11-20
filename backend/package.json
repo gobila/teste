@@ -4,7 +4,8 @@
   "description": "teste Tempo telecom",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "nodemon ./src/server.js"
   },
   "author": "Moises",
   "license": "ISC",
