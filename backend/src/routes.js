@@ -19,5 +19,30 @@ routes.post("/addcliente", celebrate({
     })
 }), clienteController.create);
 
+//produto
+routes.get("/produtos", produtoController.index);
+
+
+routes.post("/addproduto", celebrate({
+    [Segments.BODY]:Joi.object().keys({
+        nome:Joi.string().required(),
+        valor:Joi.string().required(),
+    })
+}), produtoController.create);
+
+
+
+//produto
+routes.get("/pedido", pedidoController.index);
+
+
+routes.post("/addpedido", celebrate({
+    [Segments.BODY]:Joi.object().keys({
+        produto_id:Joi.interger().required(),
+        cliente_id:Joi.interger().required(),
+        valor:Joi.string().required(),
+    })
+}), pedidoController.create);
+
 
 module.exports = routes
