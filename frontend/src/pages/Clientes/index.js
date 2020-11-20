@@ -1,30 +1,42 @@
-import logo from '../../logo.svg';
+import { useEffect, useState } from 'react';
+
+//import {ListGroup} from 'react-bootstrap';
+
 import './index.css';
 
 import api from '../../services/api';
 
 
+function Clientes() {
 
+  const [clientes, setClientes]= useState([])
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Clientes
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  useEffect(()=>{
+    api.get("cliente")
+      .then((res)=>{
+        //const data = res.data;
+        setClientes(res.data)
+      }).catch((error=>{
+        console.log(error)
+      }))
+  })
+
+    return (
+      <div className="profile-container">
+        <header>
+            <span>Bem Vindo</span>
+
+        </header>
+        <h1>Clientes cadastrados</h1>
+
+        <div className="row">
+          {clientes.map((cliente)=>(
+              <p>{cliente.nome}</p>
+          )
+          )}
+        </div>
+      </div>
+    );
 }
 
-export default App;
+export default Clientes;
